@@ -1,0 +1,10 @@
+app/domain/Location$RunnerMovementType.class
+app/domain/Location.class
+app/rest/RunningUploadRestController.class
+app/domain/LocationRepository.class
+app/RunningLocationServiceApplication.class
+app/service/impl/LocationServiceImpl.class
+app/domain/UnitInfo.class
+app/domain/Location$GpsStatus.class
+app/domain/MedicalInfo.class
+app/service/LocationService.class
