@@ -19,7 +19,7 @@ public class LocationServiceImpl implements LocationService {
 
     private  LocationRepository locationRepository;
 
-    @Autowired
+    @Autowired // this is where we use constructor DI
     public LocationServiceImpl(LocationRepository locationRepository) {
         this.locationRepository =  locationRepository;
     }
@@ -38,6 +38,7 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Page<Location> findByRunnerMovementType(String movementType, Pageable pageable) {
+        // value of part change the string to be an enum
         return locationRepository.findByRunnerMovementType(Location.RunnerMovementType.valueOf(movementType), pageable );
     }
 
