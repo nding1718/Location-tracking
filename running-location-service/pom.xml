@@ -9,7 +9,7 @@
     <version>1.0.0.BUILD -SNAPSHOT</version>
 
     <name>running-location-service</name>
-    <description>Backend Running Project Demo</description>
+    <description>Location Tracking Project</description>
 
 <!--
     this is used to manage the all the spring-boot starters
