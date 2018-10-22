@@ -12,7 +12,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
  */
 
 @RepositoryRestResource(path = "locations")
-public interface LocationRepository extends JpaRepository<Location, Long> {
+public interface LocationRepository extends JpaRepository<Location, Long> { // second parameter is id
     @RestResource(path = "runners")
     Page<Location> findByRunnerMovementType(@Param("movementType") Location.RunnerMovementType movementType, Pageable pageable);
     //localhost:8080/locations/search/customers?customername=..

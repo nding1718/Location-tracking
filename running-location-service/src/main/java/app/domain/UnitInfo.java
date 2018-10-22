@@ -10,10 +10,10 @@ import javax.persistence.Embeddable;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Embeddable
-@Data
+@Data // this is corresponding to the lombok plugin
 public class UnitInfo {
 
-    private String runningId;
+    private final String runningId;
     private String bandMake;
     private String customerName;
     private String unitNumber;

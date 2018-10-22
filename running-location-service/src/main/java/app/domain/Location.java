@@ -11,7 +11,7 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "LOCATIONS")
+@Table(name = "LOCATIONS") // this one is used to customize table name
 public class Location {
     enum GpsStatus{
         EXCELLENT, OK, UNRELIABLE, BAD, NOFIX, UNKNOWN
@@ -28,11 +28,14 @@ public class Location {
     @Id
     @GeneratedValue
     private Long id;
+
     private double longitude;
     private double latitude;
+
     private String heading;
     private double gpsSpeed;
     private GpsStatus gpsStatus;
+
     private double odometer;
     private double totalRunningTime;
     private double totalIdleTime;
@@ -44,9 +47,9 @@ public class Location {
     private String serviceType;
 
 
-    @Embedded
+    @Embedded // handle the class field we should have a corresponding annotation in the unitinfo class
     @AttributeOverride(name = "bandMake", column = @Column(name= "unit_band_make"))
-    private UnitInfo unitInfo;
+    private final UnitInfo unitInfo;
 
     @Embedded
     @AttributeOverrides({
@@ -55,17 +58,15 @@ public class Location {
     })
     private MedicalInfo medicalInfo;
 
-    public Location() {
-    }
 
-    public Location(UnitInfo unitInfo) {
-        this.unitInfo = unitInfo;
-    }
-
-    @JsonCreator
-    public Location(@JsonProperty("runningId") String runningId) {
+    public Location(String runningId) {
         this.unitInfo = new UnitInfo(runningId);
     }
+
+//    @JsonCreator
+//    public Location(@JsonProperty("runningId") String runningId) {
+//        this.unitInfo = new UnitInfo(runningId);
+//    }
 
     public String getRunningId() {
         return this.unitInfo == null ? null : this.unitInfo.getRunningId();
