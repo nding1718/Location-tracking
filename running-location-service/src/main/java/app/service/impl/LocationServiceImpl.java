@@ -14,6 +14,13 @@ import java.util.List;
  * Created by colt on 12/1/17.
  */
 
+/**
+ *  this Service annotation is important, it will mark this class as a service class, so that when spring IOC container will search for this kind of class.
+ *  And will generate this kind of Bean (for this class, is LocationServiceImpl). And only in this situation, you can Autowired this class in the controller
+ *  Or you will have a running time error tells you that you can not find bean for this class.
+ *
+ *  But why we don't need to do this when we Autowired the LocationRepository, that is because spring data JPA help us to create the bean.
+ */
 @Service
 public class LocationServiceImpl implements LocationService {
 

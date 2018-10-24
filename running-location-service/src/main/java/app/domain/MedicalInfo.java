@@ -12,16 +12,15 @@ import javax.persistence.Embeddable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Embeddable
 @Data
-@RequiredArgsConstructor
 public class MedicalInfo {
-    private final Long bfr;
-    private final Long fmi;
+    private  Long bfr;
+    private  Long fmi;
 
-//    public MedicalInfo() {
-//    }
-//
-//    public MedicalInfo(Long bfr, Long fmi) {
-//        this.bfr = bfr;
-//        this.fmi = fmi;
-//    }
+    public MedicalInfo() {
+    }
+
+    public MedicalInfo(Long bfr, Long fmi) {
+        this.bfr = bfr;
+        this.fmi = fmi;
+    }
 }
