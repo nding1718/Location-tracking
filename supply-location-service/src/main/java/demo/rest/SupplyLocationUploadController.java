@@ -1,5 +1,6 @@
 package demo.rest;
 
+import com.sun.org.apache.regexp.internal.RE;
 import demo.domain.SupplyLocation;
 import demo.domain.SupplyLocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,10 @@ public class SupplyLocationUploadController {
     @ResponseStatus(HttpStatus.CREATED)
     public void upload(@RequestBody List<SupplyLocation> locations) {
         this.repository.save(locations);
+    }
+
+    @RequestMapping(value = "/purge", method = RequestMethod.POST)
+    public void purge() {
+        this.repository.deleteAll();
     }
 }
