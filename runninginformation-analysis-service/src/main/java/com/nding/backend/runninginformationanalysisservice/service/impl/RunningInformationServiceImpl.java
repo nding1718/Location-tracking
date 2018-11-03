@@ -6,9 +6,11 @@ import com.nding.backend.runninginformationanalysisservice.service.RunningInform
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RunningInformationServiceImpl implements RunningInformationService {
 
     private RunningInformationRepository runningInformationRepository;
@@ -21,7 +23,7 @@ public class RunningInformationServiceImpl implements RunningInformationService 
 
     @Override
     public List<RunningInformation> saveRunningInformation(List<RunningInformation> runningInformationList) {
-        return null;
+        return runningInformationRepository.save(runningInformationList);
     }
 
     @Override
@@ -41,6 +43,6 @@ public class RunningInformationServiceImpl implements RunningInformationService 
 
     @Override
     public void deleteAll() {
-
+        runningInformationRepository.deleteAll();
     }
 }
